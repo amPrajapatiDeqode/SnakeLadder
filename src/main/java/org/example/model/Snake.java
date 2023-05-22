@@ -1,27 +1,31 @@
 package org.example.model;
 
-public class Snake {
+public class Snake implements Props{
 
     private int headNumber, tailNumber;
 
-    public int getHeadNumber() {
-        return headNumber;
-    }
-
-    public void setHeadNumber(int headNumber) {
+    public Snake(int headNumber, int tailNumber) {
         this.headNumber = headNumber;
-    }
-
-    public int getTailNumber() {
-        return tailNumber;
-    }
-
-    public void setTailNumber(int tailNumber) {
         this.tailNumber = tailNumber;
     }
 
-    public Snake(int headNumber, int tailNumber) {
+    @Override
+    public int getTop() {
+        return headNumber;
+    }
+
+    @Override
+    public int getBottom() {
+        return tailNumber;
+    }
+
+    @Override
+    public void setTop(int headNumber) {
         this.headNumber = headNumber;
+    }
+
+    @Override
+    public void setBottom(int tailNumber) {
         this.tailNumber = tailNumber;
     }
 }

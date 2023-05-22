@@ -1,6 +1,6 @@
 package org.example.model;
 
-public class Ladder {
+public class Ladder implements Props {
 
     private int topNumber, bottomNumber;
 
@@ -9,11 +9,24 @@ public class Ladder {
         this.bottomNumber = bottomNumber;
     }
 
-    public int getTopNumber() {
+
+    @Override
+    public int getTop() {
         return this.topNumber;
     }
 
-    public int getBottomNumber() {
+    @Override
+    public int getBottom() {
         return this.bottomNumber;
+    }
+
+    @Override
+    public void setTop(int top) {
+        this.topNumber = top;
+    }
+
+    @Override
+    public void setBottom(int bottom) {
+        this.bottomNumber = bottom;
     }
 }

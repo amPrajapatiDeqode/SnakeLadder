@@ -36,17 +36,17 @@ public class SnakeUtil {
     }
 
     private boolean ifSnakeHeadContainsLadderBottom(ArrayList<Ladder> ladders, int snakeHead) {
-        return ladders.stream().anyMatch(ladder -> ladder.getBottomNumber() == snakeHead);
+        return ladders.stream().anyMatch(ladder -> ladder.getBottom() == snakeHead);
     }
 
     public Optional<Snake> getSnakeIfSnakeIsPresentOnNextStep(ArrayList<Snake> snakes, int userDestination) {
-            return snakes.stream().filter(snake -> snake.getHeadNumber() == userDestination).findFirst();
+            return snakes.stream().filter(snake -> snake.getTop() == userDestination).findFirst();
     }
 
     public void handleSnakeOnNextStep(Optional<Snake> snakeOnNextStep, Player currentPlayer, int userDestination) {
         System.out.println("Found snake at " + userDestination);
-        System.out.println("Moving user to snake tail at " + snakeOnNextStep.get().getTailNumber());
-        currentPlayer.setCurrentNumber(snakeOnNextStep.get().getTailNumber());
+        System.out.println("Moving user to snake tail at " + snakeOnNextStep.get().getBottom());
+        currentPlayer.setCurrentNumber(snakeOnNextStep.get().getBottom());
     }
 
     private boolean validSnake(int snakeHead, int snakeTail, int size) {

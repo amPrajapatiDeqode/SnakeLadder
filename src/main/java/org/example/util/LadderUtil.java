@@ -34,16 +34,16 @@ public class LadderUtil {
     }
 
     public Optional<Ladder> getLadderIfLadderIsPresentOnNextStep(ArrayList<Ladder> ladders, int userDestination) {
-        return ladders.stream().filter(ladder -> ladder.getBottomNumber() == userDestination).findFirst();
+        return ladders.stream().filter(ladder -> ladder.getBottom() == userDestination).findFirst();
     }
 
     public void handleLadderOnNextStep(Optional<Ladder> ladderOnNextStep, Player currentPlayer, int userDestination) {
         System.out.println("Found ladder at " + userDestination);
-        System.out.println("Moving user to top of ladder at " + ladderOnNextStep.get().getTopNumber());
-        currentPlayer.setCurrentNumber(ladderOnNextStep.get().getTopNumber());
+        System.out.println("Moving user to top of ladder at " + ladderOnNextStep.get().getTop());
+        currentPlayer.setCurrentNumber(ladderOnNextStep.get().getTop());
     }
 
-    private boolean validLadder(int ladderTop, int ladderBottom, int size) {
+    public boolean validLadder(int ladderTop, int ladderBottom, int size) {
         return ladderTop>ladderBottom && ladderTop<size && ladderBottom<size && ladderBottom>0 && ladderTop>0;
     }
 }
